@@ -1,5 +1,5 @@
 <?php
-    include '../../system/koneksi.php';
+include '../system/koneksi.php';
   if (isset($_GET["id"])) {
     $id = $_GET["id"];
     $query = "DELETE FROM invite WHERE Id_invit='$id'";
