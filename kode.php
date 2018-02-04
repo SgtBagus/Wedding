@@ -58,18 +58,18 @@
                           <h3>Dennys <span class="font-main">&</span> Ayu</h3>                        
                       </div>
                       <p>Mohon masukkan kode undangan pada kotak isian yang telah disediakan.</p>
-                      <form action="#" id="form-without-labels">
+                      <form action="system/login.php?op=in" method="POST">
                         <div class="form-group">
                           <input type="text" name="kode" id="kode" value="" placeholder="* Kode Undangan">
                         </div>  
                         <div class="form-group">
-                          <input type="button" class="btn btn-medium btn-clr" value="KIRIM">
+                          <input type="submit" class="btn btn-medium btn-clr" value="KIRIM">
                         </div>  
                       </form>
                       
                           <a href="" class="btn btn-small btn-wht"><i class="fa fa fa-twitter"></i> Lokasi Akad dan Resepsi</a>
                      <div class="white-space"></div>
-
+ 
                       <div class="separator-heart"></div>
                         
                     </div> <!-- / .invitation -->

@@ -1,7 +1,7 @@
 <?php
-session_start();
+session_start(); 
 $logged_in = false;
-  if (empty($_SESSION['Id_admin'])) {
+  if (empty($_SESSION['Id_invit'])) {
       echo "<script type='text/javascript'>document.location='login';</script>";
   }
   else {

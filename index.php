@@ -1,3 +1,14 @@
+<?php
+session_start();
+$logged_in = false;
+  if (empty($_SESSION['Id_invit'])) {
+      echo "<script type='text/javascript'>document.location='kode';</script>";
+  }
+  else {
+      $logged_in = true;
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -129,7 +140,7 @@
                             <span class="just-image-title-one">The wedding celebration of<br> Dennys & Ayu</span>
                           </div>
                           <div class="animate" data-animation="fadeInUp" data-timeout="600">
-                            <p><a class="btn btn-medium btn-clr" href="kode.html">Kode Undangan</a></p>
+                            <p><a class="btn btn-medium btn-clr" href="kode">Kode Undangan</a></p>
                           </div>
 
                         </div>
