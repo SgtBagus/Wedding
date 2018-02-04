@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include('system/session.php');?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -104,6 +105,13 @@
                 <div class="v-align-center">
                   <div class="container">
                     <div class="row">
+                    <?php
+                    if($logged_in = true){
+
+                    }else if($logged_in = false){
+
+                    }
+                    ?>
                       <!-- sudah login kesini -->
 <!--
                       <div class="col-md-offset-2 col-md-8">
