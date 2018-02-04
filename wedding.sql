@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 04 Feb 2018 pada 06.00
+-- Generation Time: 04 Feb 2018 pada 06.01
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 

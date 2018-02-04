@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-  include("system/connect.php");
+  include("../system/koneksi.php");
 ?>
 <head>
   <title> <?php echo $Page ?> - Wedding </title>

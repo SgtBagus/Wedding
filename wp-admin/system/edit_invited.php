@@ -1,5 +1,5 @@
 <?php
-include '../system/connect.php';
+include '../../system/koneksi.php';
 
 if (isset($_POST['input'])) {
 
