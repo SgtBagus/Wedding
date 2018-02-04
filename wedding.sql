@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2017 at 10:31 AM
--- Server version: 10.1.28-MariaDB
+-- Generation Time: 04 Feb 2018 pada 06.00
+-- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -35,7 +35,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`Id_admin`, `Username_admin`, `Password_admin`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `admin` (`Id_admin`, `Username_admin`, `Password_admin`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invite`
+-- Struktur dari tabel `invite`
 --
 
 CREATE TABLE `invite` (
@@ -55,7 +55,7 @@ CREATE TABLE `invite` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `invite`
+-- Dumping data untuk tabel `invite`
 --
 
 INSERT INTO `invite` (`Id_invit`, `Invited`, `Id_office`, `Username`) VALUES
@@ -64,12 +64,59 @@ INSERT INTO `invite` (`Id_invit`, `Invited`, `Id_office`, `Username`) VALUES
 (3, 'Testing user ke 3', 3, 'testing-user.sengkaling'),
 (9, 'Riko', 1, 'Riko.pgri3'),
 (10, 'qwert', 4, 'qwert.morodadi'),
-(11, 'Bapak', 6, 'Bapak.Disnaker');
+(11, 'Bapak', 6, 'Bapak.Disnaker'),
+(14, 'Drs. Yoyok Wardoyo, MM', 6, 'yoyok.kab'),
+(15, 'Eko Darmawan, SE', 6, 'eko.kab'),
+(16, 'Drs. Hadi Widjaja', 6, 'hadi.kab'),
+(17, 'Rely Achmad Nurul Yakin Al\'Awam, S. Sos', 6, 'rely.kab'),
+(18, 'Yuli Iryawati', 6, 'yuli.kab'),
+(19, 'Mahmud Nur Ajis, SAP.  ', 6, 'mahmud.kab'),
+(20, 'Herman Wicaksono', 6, 'herman.kab'),
+(21, 'Hardjito  ', 6, 'hardjito.kab'),
+(22, 'Mia Afriza Fajarwati, SAP ', 6, 'mia.kab'),
+(23, 'Gitta Dwi Wulansari, S.AB ', 6, 'gitta.kab'),
+(24, 'Ahmadi', 6, 'ahmadi.kab'),
+(25, 'Edi Sugiarto', 6, 'edi.kab'),
+(26, 'Chandra Setia Eswanto, S. Kom', 6, 'chandrasetia.kab'),
+(27, 'Nilla Kaprina Valentini, Spd', 6, 'nilla.kab'),
+(28, 'Ari Kurniawan', 6, 'ari.kab'),
+(29, 'Chandra Galuh Pradata', 6, 'chandragaluh.kab'),
+(30, 'Achmad Djunaedi, SH ', 6, 'djunaedi.kab'),
+(31, 'Sukardi, S Sos', 6, 'sukardi.kab'),
+(32, 'Heru Budiono, SH', 6, 'heru.kab'),
+(33, 'Apri Sasi Andayani\' S.Sos', 6, 'apri.kab'),
+(34, 'Endri Murnayati, S.AP', 6, 'endrim.kab'),
+(35, 'Setyawan, SE ', 6, 'setyawan.kab'),
+(36, 'Endri Amintohari', 6, 'endria.kab'),
+(37, 'Elza Dwi Aprilia Daeng W, S.Pd', 6, 'elza.kab'),
+(38, 'Milatus Sholiha', 6, 'milatus.kab'),
+(39, 'Dra. Kanti Ratnawati', 6, 'kanti.kab'),
+(40, 'Lilik Faridah, SH, MM', 6, 'lilik.kab'),
+(41, 'Rachmad Dardiri, S Sos', 6, 'rachmad.kab'),
+(42, 'Iskandar Wijaya, SE', 6, 'iskandar.kab'),
+(43, 'Rizki Wahyu Nugroho, S.Sos', 6, 'rizki.kab'),
+(44, 'Enggar Agustiana M, S.Pd', 6, 'enggar.kab'),
+(45, 'Wijayanto Yusuf Wibowo', 6, 'wijayanto.kab'),
+(46, 'Achmad Rukmianto, SE, MM', 6, 'rukmianto.kab'),
+(47, 'Rahmat Yuniman, SE, Msi', 6, 'rahmat.kab'),
+(48, 'Yusnita Darayati, SH ', 6, 'yusnita.kab'),
+(49, 'Novi Andrianto Cahyo Bagus, SH', 6, 'novi.kab'),
+(50, 'Drs. Tri Wibowo', 6, 'triwibowo.kab'),
+(51, 'Mudi Hartono, SH', 6, 'mudi.kab'),
+(52, 'Dian Dharu Rohmadhoni, SH', 6, 'dian.kab'),
+(53, 'Amiati, S.Sos', 6, 'amiati.kab'),
+(54, 'Irma Yunita', 6, 'irma.kab'),
+(55, 'Trisnawati Marlinneke Markani, BA', 6, 'trisnawati.kab'),
+(56, 'Imam Safi\'i, S.Sos', 6, 'imam.kab'),
+(57, 'Drs. Bambang Santoso', 6, 'bambang.kab'),
+(58, 'Dra. Wahyuning Sri Suharti, Msi', 6, 'wahyuning.kab'),
+(59, 'Sentot Budi Ajaraji, SAP', 6, 'sentot.kab'),
+(60, 'Hilda Eka Dwi Sapto', 6, 'hilda.kab');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `office`
+-- Struktur dari tabel `office`
 --
 
 CREATE TABLE `office` (
@@ -80,7 +127,7 @@ CREATE TABLE `office` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `office`
+-- Dumping data untuk tabel `office`
 --
 
 INSERT INTO `office` (`Id_office`, `Office_name`, `Office_code`, `Description`) VALUES
@@ -89,7 +136,7 @@ INSERT INTO `office` (`Id_office`, `Office_name`, `Office_code`, `Description`) 
 (3, 'kantor_sengkaling', 'sengkaling', 'ini adalah kantor didepan sengkaling'),
 (4, 'PT Morodadi Sumartra', 'morodadi', 'PT ini cuma testing'),
 (5, 'PT Sidomultu barang antik', 'sidomutu', 'Perusahaaan tessting supaya bisa mauk ke select box custom'),
-(6, 'Dinas Tenaga Kerja Kabupaten Malang', 'Disnaker', 'Just for test');
+(6, 'Dinas Tenaga Kerja Kabupaten Malang', 'kab', 'Just for test');
 
 --
 -- Indexes for dumped tables
@@ -128,7 +175,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `invite`
 --
 ALTER TABLE `invite`
-  MODIFY `Id_invit` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id_invit` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `office`
@@ -137,11 +184,11 @@ ALTER TABLE `office`
   MODIFY `Id_office` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `invite`
+-- Ketidakleluasaan untuk tabel `invite`
 --
 ALTER TABLE `invite`
   ADD CONSTRAINT `invite_ibfk_1` FOREIGN KEY (`Id_office`) REFERENCES `office` (`Id_office`) ON DELETE CASCADE ON UPDATE CASCADE;
