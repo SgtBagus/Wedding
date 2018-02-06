@@ -17,7 +17,7 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->       
     
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/icon.png" sizes="32x32">
     <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
@@ -56,18 +56,26 @@
                       <div class="separator-heart"></div>
                       <div class="invitation-names">
                           <h3>Dennys <span class="font-main">&</span> Ayu</h3>                        
+                          <p>Mohon masukkan kode undangan pada kotak isian yang telah disediakan.</p>
                       </div>
-                      <p>Mohon masukkan kode undangan pada kotak isian yang telah disediakan.</p>
                       <form action="system/login.php?op=in" method="POST">
                         <div class="form-group">
                           <input type="text" name="kode" id="kode" value="" placeholder="* Kode Undangan">
+                      <?php
+                        if (isset($_GET['kode'])) {
+                          $kode = ($_GET["kode"]);
+                          if($kode == "false"){
+                            echo '<p style="color:red;">*mohon maaf kode yang anda masukan kurang lengkap atau belum terdaftar</p>';
+                          }
+                        }
+                      ?>
                         </div>  
                         <div class="form-group">
                           <input type="submit" class="btn btn-medium btn-clr" value="KIRIM">
                         </div>  
                       </form>
-                      
-                          <a href="" class="btn btn-small btn-wht"><i class="fa fa fa-twitter"></i> Lokasi Akad dan Resepsi</a>
+                        <a href="index" class="btn btn-small btn-wht"><i class="fa fa fa-home"></i>Halaman Utama</a>
+                        <a href="https://www.google.com/maps?ll=-7.908589,112.57176&z=16&t=m&hl=id-ID&gl=ID&mapclient=embed&cid=4317326210560040674" target="_black" class="btn btn-small btn-wht"><i class="fa fa fa-map"></i> Lokasi Akad dan Resepsi</a>
                      <div class="white-space"></div>
  
                       <div class="separator-heart"></div>

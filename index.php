@@ -1,13 +1,7 @@
 <?php
+include 'wp-admin/system/koneksi.php';
 session_start();
 $logged_in = false;
-  if (empty($_SESSION['Id_invit'])) {
-      echo "<script type='text/javascript'>document.location='kode';</script>";
-  }
-  else {
-      $logged_in = true;
-  }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +14,7 @@ $logged_in = false;
         <!-- Document Title  -->
         <title>Dennys Ayu Rabi</title>
 
-        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="img/icon.png" sizes="32x32">
         <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
         <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
@@ -115,36 +109,59 @@ $logged_in = false;
                 <div class="v-align-center">
                   <div class="container">
                     <div class="row">
+                    <?php
+                    
+                    if (empty($_SESSION['Id_invit'])) {
+                      echo'
+                      <div class="col-md-offset-2 col-md-8">
+                      <div class="just-image-title-inner text-left">
+                        <div class="just-image-title animate" data-animation="fadeInLeft" data-timeout="600">
+                          <span class="just-image-title-one">The wedding celebration of<br> Dennys & Ayu</span>
+                        </div>
+                        <div class="animate" data-animation="fadeInUp" data-timeout="600">
+                          <p><a class="btn btn-medium btn-clr" href="kode">Kode Undangan</a></p>
+                        </div>
+
+                      </div>
+                    </div>
+                      ';
+                    }
+                    else {
+                        $logged_in = true;
+                        $query = "SELECT a.*, b.* FROM invite AS a INNER JOIN 
+                                        office AS b WHERE Id_invit ='$_SESSION[Id_invit]' AND a.Id_office = b.Id_office";
+                        $result = mysqli_query($con, $query);
+                        if(!$result){
+                          die ("Query Error: ".mysqli_errno($con).
+                          " - ".mysqli_error($con)); 
+                        }
+                        $data               = mysqli_fetch_assoc($result);
+                        $Invited            = $data["Invited"]; 
+                        $Office_name        = $data["Office_name"];
+                        echo'
+                        <div class="col-md-offset-2 col-md-8">
+                          <div class="just-image-title-inner text-center">
+                              <div class="just-image-description animate" data-animation="fadeIn" data-timeout="620">
+                             Kepada Yth Bapak / Ibu / Saudara / Saudari
+                            </div>
+                            <div class="just-image-title animate" data-animation="fadeIn" data-timeout="600">
+                              <span class="just-image-title-one">'.$Invited.'</span>
+                            </div>
+                              <div class="page-title-description breadcrumbs">
+                              <ul>                              
+                                <li>'.$Office_name .'</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <p><a class="btn btn-medium btn-clr" href="system/logout.php">Logout</a></p>';
+                    }
+
+                    ?>
                       <!-- sudah login kesini -->
 <!--
-                      <div class="col-md-offset-2 col-md-8">
-                        <div class="just-image-title-inner text-center">
-                            <div class="just-image-description animate" data-animation="fadeIn" data-timeout="620">
-                           Kepada Yth Bapak / Ibu / Saudara / Saudari
-                          </div>
-                          <div class="just-image-title animate" data-animation="fadeIn" data-timeout="600">
-                            <span class="just-image-title-one">Bagus Andhika</span>
-                          </div>
-                            <div class="page-title-description breadcrumbs">
-                            <ul>                              
-                              <li>Bumi Asri</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
 -->
                       <!-- kalau belum kesini -->
-                        <div class="col-md-offset-2 col-md-8">
-                        <div class="just-image-title-inner text-right">
-                          <div class="just-image-title animate" data-animation="fadeInLeft" data-timeout="600">
-                            <span class="just-image-title-one">The wedding celebration of<br> Dennys & Ayu</span>
-                          </div>
-                          <div class="animate" data-animation="fadeInUp" data-timeout="600">
-                            <p><a class="btn btn-medium btn-clr" href="kode">Kode Undangan</a></p>
-                          </div>
-
-                        </div>
-                      </div>
                         <!--sampai sini-->
                     </div>
                   </div>
@@ -183,7 +200,7 @@ $logged_in = false;
                   <div class="about_section left12">
                          <div class="about_pic_container">
 
-                            <div class="about_pic"><img src="img/about_f.jpg" alt="" title=""></div>
+                            <div class="about_pic"><img src="img/about_m.jpg" alt="" title=""></div>
                         </div>
                             <h3>Dennys Rizky Eldian</h3>
                             <p style="color: #1f2941">Putra pertama dari Bapak Tris dan Ibu Mamik, Pare, Kediri</p>                            
@@ -333,7 +350,7 @@ $logged_in = false;
                   <div class="item grid-img img-item">
                      <div class="carousel_pic_container">					
                          <div class="carousel_pic">
-                             <img src="img/team1.jpg" alt="" title="">
+                             <img src="img/pak_tris.jpg" alt="" title="">
                          </div>
                         <h3>Pak Tris</h3>
                         <p>Maid of Honor</p> 
@@ -343,10 +360,20 @@ $logged_in = false;
                   <div class="item grid-img img-item">
                      <div class="carousel_pic_container">					
                          <div class="carousel_pic">
-                             <img src="img/team1.jpg" alt="" title="">
+                             <img src="img/bu_mamik.jpg" alt="" title="">
                          </div>
                         <h3>Bu Mamik</h3>
                         <p>Maid of Honor</p> 
+                     </div>               
+                  </div>
+                    <!-- IMAGE ITEM ELEMENT -->
+                  <div class="item grid-img img-item">
+                     <div class="carousel_pic_container">					
+                         <div class="carousel_pic">
+                             <img src="img/dian_anggraeni.jpg" alt="" title="">
+                         </div>
+                        <h3>Dian Anggraeni</h3>
+                        <p>Adik pertama dari manten putra</p> 
                      </div>               
                   </div>
                     <!-- IMAGE ITEM ELEMENT -->
@@ -387,16 +414,6 @@ $logged_in = false;
                          </div>
                         <h3>Radin Dian Zeta</h3>
                         <p>Adik kedua dari manten putri</p> 
-                     </div>               
-                  </div>
-                    <!-- IMAGE ITEM ELEMENT -->
-                  <div class="item grid-img img-item">
-                     <div class="carousel_pic_container">					
-                         <div class="carousel_pic">
-                             <img src="img/team1.jpg" alt="" title="">
-                         </div>
-                        <h3>Dian Anggraeni</h3>
-                        <p>Adik pertama dari manten putra</p> 
                      </div>               
                   </div>
                     <!-- IMAGE ITEM ELEMENT -->
@@ -476,8 +493,8 @@ $logged_in = false;
               <div class="site-logo animate" data-animation="fadeIn" data-timeout="100">
                 Dennys <span>&</span> Ayu
               </div>
-                <p>© 2017 Designed by <a href="#">AbsharBy</a> 
-                    & Developed by <a href="https://www.facebook.com/Redhotresvolska">Bagus Andhika</a>
+                <p>© 2017 Designed by <a href="https://themeforest.net/user/absharby" target="_black">AbsharBy</a> 
+                    & Developed by <a href="https://www.instagram.com/bagus_mad_chan/" target="_black">Bagus Andhika</a>
                 </p>
             </div>
           </div>

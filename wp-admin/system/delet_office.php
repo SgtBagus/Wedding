@@ -1,5 +1,5 @@
 <?php
-include '../system/koneksi.php';
+include 'koneksi.php';
   if (isset($_GET["id"])) {
     $id = $_GET["id"];
     $query = "DELETE FROM office WHERE Id_office='$id'";

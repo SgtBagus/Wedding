@@ -14,7 +14,7 @@ include("script/header_script.php");
               <a href="add_invited" class="waves-effect waves-light btn blue">
                 Add More Invited
               </a>
-            </div>
+            </div> 
           </div>
           <table id="example" class="mdl-data-table" cellspacing="0" width="100%">
             <thead>

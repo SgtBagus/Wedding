@@ -1,5 +1,5 @@
 <?php
-include '../system/koneksi.php';
+include 'koneksi.php';
 
 if (isset($_POST['input'])) {
 

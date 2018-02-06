@@ -12,7 +12,7 @@ if($op=="in"){
 			header("location:../index");
 	}
 	else{
-	    echo "<script type='text/javascript'>document.location='../kode';</script>";
+	    echo "<script type='text/javascript'>document.location='../kode?kode=false';</script>";
 	}
 }
 ?>

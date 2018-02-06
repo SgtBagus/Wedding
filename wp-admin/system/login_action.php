@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../system/koneksi.php';
+include 'koneksi.php';
 $username=$_POST['username'];
 $password=md5($_POST['password']);
 
@@ -14,7 +14,7 @@ if($op=="in"){
 			header("location:../index");
 	}
 	else{
-	    echo "<script type='text/javascript'>document.location='../login?alert=error ';</script>";
+	    // echo "<script type='text/javascript'>document.location='../login?alert=error ';</script>";
 	}
 }
 ?>
