@@ -9,6 +9,7 @@ if($op=="in"){
 	if(mysqli_num_rows($sql)==1){
 		$qry = mysqli_fetch_array($sql);
 		$_SESSION['Id_invit'] = $qry['Id_invit'];
+		// $_SESSION['start_time'];
 			header("location:../index");
 	}
 	else{

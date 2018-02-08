@@ -1,6 +1,7 @@
 <?php
 include 'wp-admin/system/koneksi.php';
 session_start();
+
 $logged_in = false;
 ?>
 <!DOCTYPE html>
@@ -51,6 +52,24 @@ $logged_in = false;
             .spinner:before, .spinner:after, .success-message, label.error, .page-title-description:before{
                 background: white;
             }
+            @media (max-width: 768px) and (min-width: 320px){
+              .slider-bg {
+                  filter: brightness(10%);\
+              }
+              .blend-bg, .slider-bg {
+                  background-color: #1019317d;
+              }
+              .image_mobile{  
+                background-image: url(img/mobile_1.jpg);
+                /* Full height */
+                height: 100%; 
+                display:block;
+                /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+              }
+            }
         </style>
     </head>
     <body>
@@ -59,21 +78,12 @@ $logged_in = false;
           <div class="container"> <!-- -fluid  -->
             <div class="row">
               <div class="col-md-2 col-sm-2 mobile-center">
-                <a href="index-2.html">
+                <a href="index">
                   <div class="site-logo">
                     Dennys <span>&</span> Ayu
                   </div>
                 </a>
               </div>
-                <div class="col-md-10 col-sm-10 padding-none">
-                  <div class="navigation">
-                    <div class="mobile-center">
-                      <a href="#menu" class="menu-link"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                    </div> 
-                    <nav class="menu" id="menu">
-                    </nav> <!-- / nav -->
-                  </div>
-                </div>
             </div>
           </div>
         </header>
@@ -81,7 +91,7 @@ $logged_in = false;
          <!--  FULLSCREEN SLIDER -->
             <div class="owl-carousel fullscreen" id="fullscreen-slider">
             <div class="item height100vh blend-bg" style="background-image: url(img/image33.jpg);">
-              <div class="slider-overlay slider-bg"></div>
+              <div class="slider-overlay slider-bg image_mobile"></div>
               <div class="slider-alignment">
                 <div class="v-align-center">
                   <div class="container">
@@ -102,79 +112,81 @@ $logged_in = false;
                   </div>
                 </div>
               </div>
-            </div> <!-- / .item -->
+            </div>
             <div class="item height100vh blend-bg" style="background-image: url(img/image32.jpg);">
-              <div class="slider-overlay slider-bg"></div>
+              <div class="slider-overlay slider-bg image_mobile"></div>
               <div class="slider-alignment">
                 <div class="v-align-center">
                   <div class="container">
-                    <div class="row">
+                    <div class="row" id="counter">
                     <?php
                     
-                    if (empty($_SESSION['Id_invit'])) {
-                      echo'
-                      <div class="col-md-offset-2 col-md-8">
-                      <div class="just-image-title-inner text-left">
-                        <div class="just-image-title animate" data-animation="fadeInLeft" data-timeout="600">
-                          <span class="just-image-title-one">The wedding celebration of<br> Dennys & Ayu</span>
-                        </div>
-                        <div class="animate" data-animation="fadeInUp" data-timeout="600">
-                          <p><a class="btn btn-medium btn-clr" href="kode">Kode Undangan</a></p>
-                        </div>
+                    // if (empty($_SESSION['Id_invit'])) {
+                    //   echo'
+                    //   <div class="col-md-offset-2 col-md-8">
+                    //   <div class="just-image-title-inner text-left">
+                    //     <div class="just-image-title animate" data-animation="fadeInLeft" data-timeout="600">
+                    //       <span class="just-image-title-one">The wedding celebration of<br> Dennys & Ayu</span>
+                    //     </div>
+                    //     <div class="animate" data-animation="fadeInUp" data-timeout="600">
+                    //       <p><a class="btn btn-medium btn-clr" href="kode">Kode Undangan</a></p>
+                    //     </div>
 
-                      </div>
-                    </div>
-                      ';
-                    }
-                    else {
-                        $logged_in = true;
-                        $query = "SELECT a.*, b.* FROM invite AS a INNER JOIN 
-                                        office AS b WHERE Id_invit ='$_SESSION[Id_invit]' AND a.Id_office = b.Id_office";
-                        $result = mysqli_query($con, $query);
-                        if(!$result){
-                          die ("Query Error: ".mysqli_errno($con).
-                          " - ".mysqli_error($con)); 
-                        }
-                        $data               = mysqli_fetch_assoc($result);
-                        $Invited            = $data["Invited"]; 
-                        $Office_name        = $data["Office_name"];
-                        echo'
-                        <div class="col-md-offset-2 col-md-8">
-                          <div class="just-image-title-inner text-center">
-                              <div class="just-image-description animate" data-animation="fadeIn" data-timeout="620">
-                             Kepada Yth Bapak / Ibu / Saudara / Saudari
-                            </div>
-                            <div class="just-image-title animate" data-animation="fadeIn" data-timeout="600">
-                              <span class="just-image-title-one">'.$Invited.'</span>
-                            </div>
-                              <div class="page-title-description breadcrumbs">
-                              <ul>                              
-                                <li>'.$Office_name .'</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <p><a class="btn btn-medium btn-clr" href="system/logout.php">Logout</a></p>';
-                    }
+                    //   </div>
+                    // </div>
+                    //   ';
+                    // }
+                    //  {
+                    //     $logged_in = true;   
+                    //     $logout_redirect_url = "system/logout.php";
+                    //       $timeout = 1;
+                    //       $timeout = $timeout * 10;
+                          // if (isset($_SESSION['start_time'])) {
+                          //     $elapsed_time = time() - $_SESSION['start_time'];
+                          //     if ($elapsed_time >= $timeout) {
+                          //         session_destroy();
+                          //         echo "<script>alert('Waktu login anda telah habis, silakan login kembali'); window.location = '$logout_redirect_url'</script>";
+                          //     }
+                          // }else{
+                            // $_SESSION['start_time'] = time();
+                            // $query = "SELECT a.*, b.* FROM invite AS a INNER JOIN 
+                            //                 office AS b WHERE Id_invit ='$_SESSION[Id_invit]' AND a.Id_office = b.Id_office";
+                            // $result = mysqli_query($con, $query);
+                            // if(!$result){
+                            //   die ("Query Error: ".mysqli_errno($con).
+                            //   " - ".mysqli_error($con)); 
+                            // }
+                            // $data               = mysqli_fetch_assoc($result);
+                            // $Invited            = $data["Invited"]; 
+                            // $Office_name        = $data["Office_name"];
+                            echo'
+                            <div class="col-md-offset-2 col-md-8">
+                              <div class="just-image-title-inner text-center">
+                                  <div class="just-image-description animate" data-animation="fadeIn" data-timeout="620">
+                                 Mengharap Kehadiran Bapak/Ibu/Saudara Pada
+                                </div>
+                                <div class="just-image-title animate" data-animation="fadeIn" data-timeout="600">
+                                  <span class="just-image-title-one">24 Februari 2018</span>
+                                </div>
+                                  <div class="page-title-description breadcrumbs">
+                                  <ul>                              
+                                    <li>
+                                      Dennys dan Ayu
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>';
+                    //       }
+                    // }
 
                     ?>
-                      <!-- sudah login kesini -->
-<!--
--->
-                      <!-- kalau belum kesini -->
-                        <!--sampai sini-->
                     </div>
                   </div>
                 </div>
               </div>
-            </div> <!-- / .item -->
-
-            
-
-          </div> <!-- / .owl-carousel -->
-
-          <!--  / FULLSCREEN SLIDER ELEMENT -->
-        
+            </div>
+          </div>
             <div class="bg-clr bg-clr-figure">
               <div class="container">
                 <div class="row">
@@ -219,7 +231,18 @@ $logged_in = false;
             </div>
           </div>
         </div> <!-- / .content-section -->
-      
+        
+
+                
+                <!-- <div class="animate" data-animation="fadeIn" data-timeout="700">
+               
+                <div id="countdown">
+                  <div id="clock-countdown" class="wrap-countdown text-center white-countdown"></div>
+                </div>
+
+              </div>  -->
+
+
     <div class="content-section text-center">
 
           <div class="bg-clr call-to-acton">
@@ -309,7 +332,7 @@ $logged_in = false;
                     <div class="image-text-important lokasi_dan_waktu">
                       <span class="fa fa-calendar-check-o"></span> Rabu, 7 Maret 2018 <br>
                       <span class="fa fa-clock-o"></span>  09.00 AM - selesai <br>
-                      <span class="fa fa-map-marker"></span> Stanley Dock, Regent Rd, Liverpool L3 0AN, UK
+                      <span class="fa fa-map-marker"></span> Jl. Delima No.9 Ds. Tretek, Pare, Kediri
                     </div>
                   </div>
 
@@ -352,8 +375,8 @@ $logged_in = false;
                          <div class="carousel_pic">
                              <img src="img/pak_tris.jpg" alt="" title="">
                          </div>
-                        <h3>Pak Tris</h3>
-                        <p>Maid of Honor</p> 
+                        <h3>Trisno Muhardjo</h3>
+                        <p>Ayah dari manten putra</p> 
                      </div>               
                   </div>
                     <!-- IMAGE ITEM ELEMENT -->
@@ -362,21 +385,11 @@ $logged_in = false;
                          <div class="carousel_pic">
                              <img src="img/bu_mamik.jpg" alt="" title="">
                          </div>
-                        <h3>Bu Mamik</h3>
-                        <p>Maid of Honor</p> 
+                        <h3>Mamik Hidayati</h3>
+                        <p>Ibu dari manten putra</p> 
                      </div>               
                   </div>
-                    <!-- IMAGE ITEM ELEMENT -->
-                  <div class="item grid-img img-item">
-                     <div class="carousel_pic_container">					
-                         <div class="carousel_pic">
-                             <img src="img/dian_anggraeni.jpg" alt="" title="">
-                         </div>
-                        <h3>Dian Anggraeni</h3>
-                        <p>Adik pertama dari manten putra</p> 
-                     </div>               
-                  </div>
-                    <!-- IMAGE ITEM ELEMENT -->
+                  <!-- IMAGE ITEM ELEMENT -->
                   <div class="item grid-img img-item">
                      <div class="carousel_pic_container">					
                          <div class="carousel_pic">
@@ -414,6 +427,16 @@ $logged_in = false;
                          </div>
                         <h3>Radin Dian Zeta</h3>
                         <p>Adik kedua dari manten putri</p> 
+                     </div>               
+                  </div>
+                    <!-- IMAGE ITEM ELEMENT -->
+                    <div class="item grid-img img-item">
+                     <div class="carousel_pic_container">					
+                         <div class="carousel_pic">
+                             <img src="img/dian_anggraeni.jpg" alt="" title="">
+                         </div>
+                        <h3>Dian Anggraeni</h3>
+                        <p>Adik pertama dari manten putra</p> 
                      </div>               
                   </div>
                     <!-- IMAGE ITEM ELEMENT -->
@@ -520,10 +543,7 @@ $logged_in = false;
         <script src="js/jquery.lighterbox.0.0.3.min.js"></script>
         <script src="js/instagramLite.min.js"></script>
         <script src="js/options-menu.js"></script>
-
         <script>if (window.module) module = window.module;</script>
         <script src="js/main.js"></script>
-
-        
     </body>
 </html>

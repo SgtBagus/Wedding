@@ -107,7 +107,7 @@ var owl1 = $("#fullscreen-slider");
     loop:true,
     margin:0,
     items:1,
-    autoplay: false,
+    autoplay: true,
     autoplayTimeout: 7000,
     nav: true,
     navSpeed:1000,
@@ -266,7 +266,7 @@ owl5.owlCarousel({
 // 5. COUNTDOWN
 //================================================================
 
-var weddingTime = '2018/05/31';
+var weddingTime = '2018/02/24';
 
 $('#countdown').countdown(weddingTime, function(event) {
 
@@ -274,11 +274,11 @@ $('#countdown').countdown(weddingTime, function(event) {
 
   $('#day-countdown').html(event.strftime('<span class="big-num">%D</span> <span class="grey">days</span>'));
   $('#clock-countdown').html(event.strftime(''
-  + '<div class="countdown-section"><div class="countdown-amount">%-m</div><div class="countdown-text"><span class="grey">Month%!m</span></div></div>'
-  + '<div class="countdown-section"><div class="countdown-amount">%-d</div><div class="countdown-text"><span class="grey">Day%!d</span></div></div>'
-  + '<div class="countdown-section"><div class="countdown-amount">%H</div><div class="countdown-text"><span class="grey">Hours</span></div></div>'
-  + '<div class="countdown-section"><div class="countdown-amount">%M</div><div class="countdown-text"><span class="grey">Minuts</span></div></div>'
-  + '<div class="countdown-section"><div class="countdown-amount">%S</div><div class="countdown-text"><span class="grey">Seconds</span></div></div>'));
+  + '<div class="countdown-section"><div class="countdown-amount">%W</div><div class="countdown-text"><span class="grey">Minggu</span></div></div>'
+  + '<div class="countdown-section"><div class="countdown-amount">%D</div><div class="countdown-text"><span class="grey">Hari</span></div></div>'
+  + '<div class="countdown-section"><div class="countdown-amount">%H</div><div class="countdown-text"><span class="grey">Jam</span></div></div>'
+  + '<div class="countdown-section"><div class="countdown-amount">%M</div><div class="countdown-text"><span class="grey">Menit</span></div></div>'
+  + '<div class="countdown-section"><div class="countdown-amount">%S</div><div class="countdown-text"><span class="grey">Detik</span></div></div>'));
 });
 
 
